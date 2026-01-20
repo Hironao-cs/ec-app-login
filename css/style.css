@@ -1,0 +1,613 @@
+/* =========================================
+   1. リセットとベーススタイル
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8; /* 背景を少しグレーにしてフォームを浮かせます */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =========================================
+   2. 共通ヘッダー・フッター
+   ========================================= */
+.header {
+    background-color: #b1284b;
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap; /* スマホ時に折り返せるように */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.footer {
+    background-color: #b1284b;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: opacity 0.3s;
+}
+
+.nav a:hover {
+    opacity: 0.
+}
+/* =========================================
+   3. フォーム中央配置のコア設定
+   ========================================= */
+
+/* 画面全体の高さを確保して、中央に寄せる土台を作る */
+.main-content {
+    display: flex;
+    justify-content: center; /* 左右中央 */
+    align-items: center;     /* 上下中央（必要なら） */
+    padding: 40px 20px;
+    min-height: calc(100vh - 200px); /* ヘッダー・フッター分を引いた高さ */
+}
+
+/* フォームを囲む白いボックス（カード） */
+.form-container {
+    width: 100%;
+    max-width: 500px;         /* フォームの横幅を500pxに固定 */
+    background: #ffffff;      /* 背景を白にする */
+    padding: 40px;            /* 内側の余白 */
+    border-radius: 12px;      /* 角を丸くする */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 影をつけて浮かす */
+    border: 1px solid #eee;   /* 薄い枠線 */
+}
+
+.form-container h3 {
+    text-align: center;
+    color: #b1284b;           /* スクールカラー */
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* 入力グループ（ラベルと入力欄） */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;         /* 項目内のテキストは左寄せ */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* 必須ラベル */
+.required::after {
+    content: "必須";
+    background: #b1284b;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+}
+
+/* 入力欄の見た目 */
+.form-group input, 
+.form-group select {
+    width: 100%;              /* 親（500px）の幅に合わせる */
+    padding: 12px;
+    border: 1px solid #ccc;   /* 枠線を少しハッキリさせる */
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;   /* パディングを含めて幅計算 */
+}
+
+/* 送信ボタン */
+.submit-btn {
+    width: 100%;
+    background-color: #b1284b;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #8a1f3a;
+    transform: translateY(-2px);
+}
+
+/* 一覧画面などで幅を広く使いたい場合用 */
+.main-full {
+    display: block; /* 中央寄せflexを解除 */
+    width: 100%;
+}
+
+/* 一覧画面の下部リンク用 */
+.center-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.center-link a {
+    color: #b1284b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.center-link a:hover {
+    text-decoration: underline;
+}
+/* =========================================
+   4. 確認画面専用：テーブルスタイル */
+/* ========================================= */
+/* タイトル周りの装飾 */
+.confirm-title {
+    color: #b1284b;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.confirm-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+/* 罫線付きテーブル */
+.confirm-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd; /* 外枠 */
+}
+
+.confirm-table th, 
+.confirm-table td {
+    padding: 16px;
+    border: 1px solid #ddd; /* 内側の罫線 */
+    text-align: left;
+}
+
+.confirm-table th {
+    width: 35%;
+    background-color: #f9f9f9; /* 見出しに薄い背景色 */
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.confirm-table td {
+    color: #444;
+    font-size: 16px;
+}
+
+/* モダンなボタンデザイン */
+.form-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-modern {
+    padding: 16px 32px;
+    border-radius: 50px; /* 角を丸くしてモダンに */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    display: inline-block;
+    text-align: center;
+    min-width: 180px;
+}
+
+/* 登録ボタン：エンジ色のグラデーション */
+.btn-submit {
+    background: linear-gradient(135deg, #b1284b 0%, #8a1f3a 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(177, 40, 75, 0.3);
+}
+
+.btn-submit:hover {
+    background: linear-gradient(135deg, #d1305a 0%, #b1284b 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(177, 40, 75, 0.4);
+}
+
+/* 修正ボタン：シンプルなグレー */
+.btn-back {
+    background-color: #f0f0f0;
+    color: #666;
+    border: 1px solid #ddd;
+}
+
+.btn-back:hover {
+    background-color: #e8e8e8;
+    color: #333;
+    transform: translateY(-2px);
+}
+/* テーブル見出しの固定 */
+.confirm-table thead th {
+    background-color: #b1284b;
+    color: white;
+    border: 1px solid #b1284b;
+}
+
+/* 操作カラムのテキスト配置 */
+.confirm-table td {
+    vertical-align: middle;
+}
+
+/* ログアウトリンク */
+.logout-link {
+    color: white;
+    margin-left: 20px;
+    padding: 5px 12px;
+    border: 1px solid white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.logout-link:hover {
+    background-color: white;
+    color: #b1284b;
+}
+/* スマホ対応 */
+@media (max-width: 480px) {
+    .form-actions {
+        flex-direction: column-reverse; /* スマホではボタンを縦に並べる */
+    }
+    .btn-modern {
+        width: 100%;
+    }
+}
+/* =========================================
+   5. select.php (管理画面) 専用スタイル
+   ========================================= */
+
+.admin-main {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 60px 20px !important;
+    max-width: 100% !important; /* コンテナの幅制限を解除 */
+}
+
+.admin-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+
+/* 罫線を強制的に表示 */
+.admin-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 2px solid #b1284b !important; /* 外枠 */
+    table-layout: auto;
+}
+
+/* 縦線と横線をしっかり引く */
+.admin-table th, 
+.admin-table td {
+    padding: 15px !important;
+    border: 1px solid #666666 !important; /* 罫線を少し濃いグレーに */
+    text-align: center !important;
+}
+
+.admin-table th {
+    background-color: #b1284b !important;
+    color: white !important;
+    font-weight: bold;
+}
+/* フォームの幅と余白を個別に調整 */
+.update-wrapper {
+    max-width: 500px !important;
+    padding: 40px !important;
+    margin: 0 auto;
+}
+
+/* 更新画面の下部ボタンエリア */
+.update-actions {
+    margin-top: 30px !important;
+    display: flex;
+    gap: 15px;
+}
+
+/* キャンセルボタン（aタグ）を他のボタンと高さを合わせる */
+.update-actions .cancel-btn {
+    text-decoration: none;
+    display: inline-block;
+    line-height: 44px; /* 親のpaddingやボタンの高さに合わせる */
+    text-align: center;
+    flex: 1;
+}
+
+/* select.php の中のお名前リンクを見やすくする */
+.admin-table a {
+    color: #b1284b;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.admin-table a:hover {
+    color: #8a1f3a;
+    text-decoration: none;
+}
+
+/* 削除ボタンのスタイル */
+.delete-link {
+    color: #e74c3c; /* 赤色 */
+    text-decoration: none;
+    font-size: 0.8em;
+    padding: 5px 10px;
+    border: 1px solid #e74c3c;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.delete-link:hover {
+    background: #e74c3c;
+    color: #fff;
+}
+/* 一覧画面のボタン */
+.btn-edit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.lock-icon {
+    color: #999;
+    font-size: 12px;
+}
+
+.logout-link {
+    color: white;
+    margin-left: 20px;
+    font-size: 14px;
+}
+/* =========================================
+   6. レスポンシブ対応
+   ========================================= */
+@media (max-width: 768px) {
+    .header .container { flex-direction: column; gap: 15px; }
+    .nav { gap: 20px; }
+    .hero-content h2 { font-size: 32px; }
+    .admin-table th, .admin-table td { padding: 8px; font-size: 12px; }
+    .form-actions { flex-direction: column; }
+} 
+
+
+/* =========================================
+   7. select.php (会員一覧) ボタンの横並び調整
+   ========================================= */
+
+/* 操作カラム（一番右の列）の幅を固定し、改行を防ぐ */
+.confirm-table th:last-child,
+.confirm-table td:last-child {
+    width: 160px;        /* ボタン2つが並ぶ幅 */
+    text-align: center;  /* 中央寄せ */
+    white-space: nowrap; /* 文字やボタンの途中で改行させない */
+}
+
+/* 更新・削除ボタンの共通スタイルを上書き */
+.btn-edit, .btn-delete {
+    display: inline-block; /* 横並びを許可 */
+    padding: 6px 14px;     /* 押しやすいサイズに調整 */
+    border-radius: 4px;    /* 角を少し丸く */
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 2px 4px;       /* ボタンの間に隙間を作る */
+    line-height: 1.4;      /* 文字の高さを一定に */
+    transition: 0.2s;      /* ホバー時の動きを滑らかに */
+}
+
+/* 更新ボタンの色（既存を上書き） */
+.btn-edit {
+    background-color: #2e7d32; /* 少し深みのある緑 */
+    color: white;
+}
+
+/* 削除ボタンの色（既存を上書き） */
+.btn-delete {
+    background-color: #d32f2f; /* 少し深みのある赤 */
+    color: white;
+}
+
+/* ホバー時に少し暗くして「押せる感」を出す */
+.btn-edit:hover, .btn-delete:hover {
+    opacity: 0.8;
+    transform: translateY(-1px); /* わずかに浮かす */
+}
+
+/* shop.php */
+.hero {
+    background: linear-gradient(135deg, #b1284b 0%, #8a1f3a 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+
+/* 商品カードの画像比率を保つ設定 */
+.product-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* 正方形に固定すると綺麗です */
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 90%; /* 少し余白を持たせると商品らしくなります */
+    height: auto;
+    object-fit: contain;
+}
+
+.hero-content h2 { font-size: 42px; margin-bottom: 20px; font-weight: bold; }
+.hero-content p { font-size: 18px; opacity: 0.9; }
+
+.products-section { padding: 60px 20px; background-color: white; }
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: #b1284b;
+    font-weight: bold;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(177, 40, 75, 0.2);
+}
+
+.product-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    background-color: #f5f5f5;
+}
+
+
+
+.bookmark-btn {
+    position: absolute;
+    top: 15px; right: 15px;
+    background-color: white;
+    border: none;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: #b1284b;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.product-info { padding: 20px; }
+.product-name { font-size: 20px; font-weight: bold; margin-bottom: 12px; }
+.product-price { font-size: 24px; font-weight: bold; color: #b1284b; margin-bottom: 15px; }
+
+.add-to-cart-btn {
+    width: 100%;
+    background-color: #b1284b;
+    color: white;
+    border: none;
+    padding: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.shop-logout-btn {
+    border: 1px solid rgba(255, 255, 255, 0.5); /* 白い薄い枠線 */
+    padding: 2px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.shop-logout-btn:hover {
+    background-color: white;
+    color: #b1284b !important; /* スクールカラーに反転 */
+    border-color: white;
+    opacity: 1 !important;
+}
