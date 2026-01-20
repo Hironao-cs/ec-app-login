@@ -1,8 +1,8 @@
 <?php
-$db_host = "mysql80.whitemarmot50.sakura.ne.jp";
-$db_name = "whitemarmot50_php02";
-$db_id   = "whitemarmot50_php02";
-$db_pw   = "Green_1670"; // XAMPP/Windowsなら空、MAMP/Macなら "root"
+$db_host = "";
+$db_name = "";
+$db_id   = "";
+$db_pw   = ""; // XAMPP/Windowsなら空、MAMP/Macなら "root"
 
 
 header('Content-Type: application/json; charset=utf-8');
