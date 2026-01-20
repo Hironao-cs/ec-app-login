@@ -13,10 +13,10 @@ $user_pw = password_hash($lpw_raw, PASSWORD_DEFAULT);
 $teacher_flg = ($user_type === "教員") ? 1 : 0;
 
 // 2. DB接続
-$db_name = "whitemarmot50_php02";
-$db_id   = "whitemarmot50_php02";
-$db_pw   = "Green_1670"; // XAMPP/Windowsなら空、MAMP/Macなら "root"
-$db_host = "mysql80.whitemarmot50.sakura.ne.jp";
+$db_name = "";
+$db_id   = "";
+$db_pw   = ""; // XAMPP/Windowsなら空、MAMP/Macなら "root"
+$db_host = "";
 
 try {
     $pdo = new PDO('mysql:dbname='.$db_name.';charset=utf8;host='.$db_host, $db_id, $db_pw);
